@@ -1,9 +1,10 @@
-{{define "title"}}Postmortem{{end}}
+{{define "title"}}postmortems.app - {{ .Title }} {{end}}
 
 {{define "body"}}
 <article class="pa3 pa5-ns mw8 center">
   {{ range .Postmortems }}
   <h1 class="f3 f2-m f1-l">{{ .Company }}</h1>
+  <h2>{{ .Title }}</h2>
   <ul>
     {{ range .Categories }}
     <li><a href="/category/{{ . }}">{{ . }}</a></li>
