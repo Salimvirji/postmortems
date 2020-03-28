@@ -24,6 +24,7 @@ type Postmortem struct {
 	URL         string    `yaml:"url"`
 	StartTime   time.Time `yaml:"start_time,omitempty"`
 	EndTime     time.Time `yaml:"end_time,omitempty"`
+	Title	    string.   `yaml:"title"`
 	Categories  []string  `yaml:"categories"`
 	Company     string    `yaml:"company"`
 	Product     string    `yaml:"product"`
@@ -67,6 +68,10 @@ func Parse(f io.Reader) (*Postmortem, error) {
 
 	if endTime, ok := fm["end_time"].(time.Time); ok {
 		p.EndTime = endTime
+	}
+	
+	if title, ok := fm["title"].(string); ok {
+		p.Title = title
 	}
 
 	if url, ok := fm["url"].(string); ok {
